@@ -3,7 +3,8 @@ $('#InputPhone').mask('(00) 0000-0000');
 
 //Array Alunos
 var Alunos = [
-  { id: 1, name: "Kayky Costa", email: "kayky.costa@fatec.com", telefone: "(11) 9999-9999", curso: 1, turno: "Manhã" }
+  { id: 1, name: "Kayky Costa", email: "kayky.costa@fatec.com", telefone: "(11) 9999-9999", curso: 1, turno: "Manhã" },
+  { id: 2, name: "Beatriz Camargo", email: "beatriz.camargo14@fatec.com", telefone: "(11) 9999-9999", curso: 3, turno: "Noite" }
 ];
 
 //Array Cursos
@@ -17,23 +18,13 @@ loadAlunos();
 
 //Salvar
 function save() {
-
-  let Turno;
-  if (document.getElementById("Manha").checked) {
-    Turno = "Manhã";
-  } else if (document.getElementById("Tarde").checked) {
-    Turno = "Tarde";
-  } else if (document.getElementById("Noite").checked) {
-    Turno = "Noite";
-  }
-
   var aluno = {
     id: Alunos.length + 1,
     name: document.getElementById("InputName").value,
     email: document.getElementById("InputEmail").value,
     telefone: document.getElementById("InputPhone").value,
     curso: document.getElementById("SelectCurso").value,
-    turno: Turno
+    turno: document.querySelector("input[name=CheckRadio]:checked").value
   };
 
   addNewRow(aluno);

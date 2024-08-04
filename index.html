@@ -13,7 +13,7 @@
 
 <body>
   <!-- Cabeçalho -->
-  <header class="fs-lg-2 fs-1 fw-bold text-center bg-black text-white py-1">
+  <header class="fs-lg-2 fs-1 fw-bold text-center bg-black text-white py-lg-1">
     Cadastro de Alunos
   </header>
   <!-- Corpo Principal -->
@@ -73,21 +73,21 @@
               <!-- Manhã -->
               <div class="col-lg-3 offset-lg-1 offset-0 p-2">
                 <div class="form-check mb-1">
-                  <input class="form-check-input" type="radio" name="CheckRadio" id="Manha" checked/>
+                  <input class="form-check-input" type="radio" name="CheckRadio" id="Manha" value="Manhã" checked/>
                   <label class="form-check-label" for="Manha">
                     Manhã
                   </label>
                 </div>
                 <!-- Tarde -->
                 <div class="form-check mb-1">
-                  <input class="form-check-input" type="radio" name="CheckRadio" id="Tarde" />
+                  <input class="form-check-input" type="radio" name="CheckRadio" id="Tarde" value="Tarde"/>
                   <label class="form-check-label" for="Tarde">
                     Tarde
                   </label>
                 </div>
                 <!-- Noite -->
                 <div class="form-check mb-1">
-                  <input class="form-check-input" type="radio" name="CheckRadio" id="Noite" />
+                  <input class="form-check-input" type="radio" name="CheckRadio" id="Noite" value="Noite"/>
                   <label class="form-check-label" for="Noite">
                     Noite
                   </label>
@@ -108,22 +108,22 @@
     <section>
       <div class="fs-3">Cadastros</div>
       <!-- Tabela -->
-      <table class="my-1 text-center table" id="AlunosTable">
+      <table class="my-lg-1 text-center table" id="AlunosTable">
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Nome</th>
-            <th scope="col">Email</th>
-            <th scope="col">Telefone</th>
-            <th scope="col">Curso</th>
-            <th scope="col">Turno</th>
+            <th scope="col" class="d-none d-md-table-cell">Email</th>
+            <th scope="col" class="d-none d-md-table-cell">Telefone</th>
+            <th scope="col" class="d-none d-md-table-cell">Curso</th>
+            <th scope="col" class="d-none d-md-table-cell">Turno</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody class="d-none d-md-table-cell"></tbody>
       </table>
     </section>
     <!-- Pé do Site -->
-    <footer class="fixed-bottom fw-bold text-center bg-secondary text-white py-1">
+    <footer class="fixed-bottom fw-bold text-center bg-secondary text-white py-lg-1">
       @Sistemas de Cadastro
     </footer>
   </main>
