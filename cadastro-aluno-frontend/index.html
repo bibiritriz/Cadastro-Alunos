@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+  <!--Icon-->
+  <link rel="icon" href="src/assets/icons/table_edit_50dp_E8EAED_FILL0_wght400_GRAD0_opsz48.svg" type="image/svg+xml">
+  <!-- Título Principal -->
+  <title>Cadastro de Alunos</title>
+</head>
+
+<body>
+  <!-- Cabeçalho -->
+  <header class="fs-lg-1 fs-1 text-center bg-black text-white py-lg-1">
+    Cadastro de Alunos
+  </header>
+  <!-- Corpo Principal -->
+  <main class="container-lg">
+    <section>
+      <!-- Formulario -->
+      <div class="fs-2">Formulário de Cadastro</div>
+      <div class="row">
+        <div class="col-11">
+          <form onsubmit="save(); return false;" id="FormAlunos">
+            <!-- Input Nome -->
+            <div class="row offset-lg-2 offset-1">
+              <label for="InputName" class="col-lg-2 col-5 fs-5 col-form-label">
+                Nome
+              </label>
+              <div class="col-md-10 my-lg-1">
+                <input type="text" class="form-control" id="InputName" required />
+              </div>
+            </div>
+            <!-- Input Email -->
+            <div class="row my-lg-1 offset-lg-2 offset-1">
+              <label for="InputEmail" class="col-lg-2 col-5 fs-5 col-form-label">
+                Email
+              </label>
+              <div class="col-md-10 my-lg-1">
+                <input type="email" class="form-control" id="InputEmail" required />
+              </div>
+            </div>
+            <!-- Seleção de Cursos -->
+            <div class="row my-lg-1 offset-lg-2 offset-1">
+              <label for="SelectCurso" class="col-2 fs-5 col-form-label">
+                Curso
+              </label>
+              <div class="col-md-5 col-12 my-lg-1">
+                <select class="fs-6 form-select" aria-label="Selecione um curso" id="SelectCurso" required>
+                  <option value="1" selected>
+                    Análise e Desenvolvimento de Sistemas
+                  </option>
+                  <option value="2">Ciências da Computação</option>
+                  <option value="3">Engenharia de Software</option>
+                </select>
+              </div>
+              <!-- Input Telefone -->
+              <label for="InputPhone" class="col-lg-2 col-5 fs-5 col-form-label">
+                Telefone
+              </label>
+              <div class="col-lg-3 col-12 my-lg-1">
+                <input type="text" class="form-control" id="InputPhone" required />
+              </div>
+            </div>
+            <!-- Turnos -->
+            <div class="row my-lg-1 offset-lg-2 offset-1">
+              <label for="Manha" class="col-lg-1 fs-5 col-form-label">
+                Turno
+              </label>
+              <!-- Manhã -->
+              <div class="col-lg-3 offset-lg-1 offset-0 p-2">
+                <div class="form-check mb-1">
+                  <input class="form-check-input" type="radio" name="CheckRadio" id="Manha" value="Manhã" checked />
+                  <label class="form-check-label" for="Manha">
+                    Manhã
+                  </label>
+                </div>
+                <!-- Tarde -->
+                <div class="form-check mb-1">
+                  <input class="form-check-input" type="radio" name="CheckRadio" id="Tarde" value="Tarde" />
+                  <label class="form-check-label" for="Tarde">
+                    Tarde
+                  </label>
+                </div>
+                <!-- Noite -->
+                <div class="form-check mb-1">
+                  <input class="form-check-input" type="radio" name="CheckRadio" id="Noite" value="Noite" />
+                  <label class="form-check-label" for="Noite">
+                    Noite
+                  </label>
+                </div>
+              </div>
+            </div>
+            <!-- Botão -->
+            <div class="row my-lg-1 offset-lg-2 offset-1">
+              <div class="col-lg-2">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+    </section>
+    <hr />
+    <!-- Sessão Cadastros -->
+    <section>
+      <div class="fs-2">Alunos Cadastrados</div>
+      <!-- Tabela -->
+      <table class="my-lg-1 text-center table" id="AlunosTable">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col" class="d-none d-md-table-cell">Email</th>
+            <th scope="col" class="d-none d-md-table-cell">Telefone</th>
+            <th scope="col" class="d-none d-md-table-cell">Curso</th>
+            <th scope="col" class="d-none d-md-table-cell">Turno</th>
+          </tr>
+        </thead>
+        <tbody class="d-none d-md-table-cell"></tbody>
+      </table>
+    </section>
+    <!-- Pé do Site -->
+    <footer class="fixed-bottom fw-bold text-center bg-secondary text-white py-lg-1">
+      @Sistemas de Cadastro
+    </footer>
+  </main>
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <!-- JavaScript -->
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/jquery.mask.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
