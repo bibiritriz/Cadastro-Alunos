@@ -1,59 +1,83 @@
-//Mascara Telefone
-$('#InputPhone').mask('(00) 0000-0000');
+//Phone Mask
+$('#InputPhone').mask('(00) 00000-0000');
 
-//Array Alunos
-let Alunos = [];
+//Array Students
+let students = [];
 
-//Array Cursos
-let cursos = [];
+//Array Courses
+let courses = [];
 
-//Salvar
+//Save
 function save() {
-  var aluno = {
-    id: Alunos.length + 1,
+  let stud = {
+    id: students.length + 1,
     name: document.getElementById("InputName").value,
     email: document.getElementById("InputEmail").value,
-    telefone: document.getElementById("InputPhone").value,
-    curso: document.getElementById("SelectCurso").value,
-    turno: document.querySelector("input[name=CheckRadio]:checked").value
+    phone: document.getElementById("InputPhone").value,
+    idCourse: document.getElementById("SelectCourses").value,
+    period: document.querySelector("input[name=CheckRadio]:checked").value
   };
 
-  addNewRow(aluno);
-  Alunos.push(aluno);
-
-  document.getElementById("FormAlunos").reset();
+  $.ajax({
+    url: "http://localhost:8080/students",
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify(stud),
+    async: false,
+    success: (student) => {
+      addNewRow(student);
+      students.push(student);
+      document.getElementById("FormAlunos").reset();
+    }
+  });
 }
 
-loadAlunos();
+loadCourses();
+loadStudents();
 
-function loadAlunos() {
-  for (let aluno of Alunos) {
-    addNewRow(aluno);
-  }
+function loadCourses() {
+  $.ajax({
+    url: "http://localhost:8080/courses",
+    type: "GET",
+    async: false,
+    success: (response) => {
+      courses = response;
+      for (let cour of response) {
+        document.getElementById("SelectCourses").innerHTML += `<option value=${cour.id}>${cour.name}</option>`;
+      }
+    }
+  });
 }
 
-function addNewRow(aluno) {
-  const tabela = document.getElementById("AlunosTable");
+function loadStudents() {
+  $.getJSON("http://localhost:8080/students", (response) => {
+    students = response;
+    for (let stud of response) {
+      addNewRow(stud);
+    }
+  });
+}
 
-  const novaLinha = tabela.insertRow();
+function addNewRow(stud) {
+  const table = document.getElementById("StudentsTable");
 
-  const idNode = document.createTextNode(aluno.id);
-  novaLinha.insertCell().appendChild(idNode);
+  const newRow = table.insertRow();
 
-  const nameNode = document.createTextNode(aluno.name);
-  novaLinha.insertCell().appendChild(nameNode);
+  const idNode = document.createTextNode(stud.id);
+  newRow.insertCell().appendChild(idNode);
 
-  const emailNode = document.createTextNode(aluno.email);
-  const cell = novaLinha.insertCell();
-  cell.className="d-none d-md-table-cell";
-  cell.appendChild(emailNode);
+  const nameNode = document.createTextNode(stud.name);
+  newRow.insertCell().appendChild(nameNode);
 
-  const phoneNode = document.createTextNode(aluno.telefone);
-  cell.appendChild(phoneNode);
+  const emailNode = document.createTextNode(stud.email);
+  newRow.insertCell().appendChild(emailNode);
 
-  const cursoNode = document.createTextNode(cursos[aluno.curso - 1].name);
-  cell.appendChild(cursoNode);
+  const phoneNode = document.createTextNode(stud.phone);
+  newRow.insertCell().appendChild(phoneNode);
 
-  const turnoNode = document.createTextNode(aluno.turno);
-  cell.appendChild(turnoNode);
+  const courseNode = document.createTextNode(courses[stud.idCourse - 1].name);
+  newRow.insertCell().appendChild(courseNode);
+
+  const periodNode = document.createTextNode(stud.period);
+  newRow.insertCell().appendChild(periodNode);
 }

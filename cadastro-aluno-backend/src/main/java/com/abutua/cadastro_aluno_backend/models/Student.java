@@ -12,7 +12,8 @@ public class Student {
 
   }
 
-  public Student(String name, String email, String phone, int idCourse, int period) {
+  public Student(int id, String name, String email, String phone, int idCourse, int period) {
+    this.id = id;
     this.name = name;
     this.email = email;
     this.phone = phone;

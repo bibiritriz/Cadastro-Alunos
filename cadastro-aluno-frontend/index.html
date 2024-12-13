@@ -46,16 +46,11 @@
             </div>
             <!-- Seleção de Cursos -->
             <div class="row my-lg-1 offset-lg-2 offset-1">
-              <label for="SelectCurso" class="col-2 fs-5 col-form-label">
+              <label for="SelectCourse" class="col-2 fs-5 col-form-label">
                 Curso
               </label>
               <div class="col-md-5 col-12 my-lg-1">
-                <select class="fs-6 form-select" aria-label="Selecione um curso" id="SelectCurso" required>
-                  <option value="1" selected>
-                    Análise e Desenvolvimento de Sistemas
-                  </option>
-                  <option value="2">Ciências da Computação</option>
-                  <option value="3">Engenharia de Software</option>
+                <select class="fs-6 form-select" aria-label="Selecione um curso" id="SelectCourses" required>
                 </select>
               </div>
               <!-- Input Telefone -->
@@ -68,28 +63,28 @@
             </div>
             <!-- Turnos -->
             <div class="row my-lg-1 offset-lg-2 offset-1">
-              <label for="Manha" class="col-lg-1 fs-5 col-form-label">
+              <label for="morningPeriod" class="col-lg-1 fs-5 col-form-label">
                 Turno
               </label>
               <!-- Manhã -->
               <div class="col-lg-3 offset-lg-1 offset-0 p-2">
                 <div class="form-check mb-1">
-                  <input class="form-check-input" type="radio" name="CheckRadio" id="Manha" value="Manhã" checked />
-                  <label class="form-check-label" for="Manha">
+                  <input class="form-check-input" type="radio" name="CheckRadio" id="morningPeriod" value="Manhã" checked />
+                  <label class="form-check-label" for="morningPeriod">
                     Manhã
                   </label>
                 </div>
                 <!-- Tarde -->
                 <div class="form-check mb-1">
-                  <input class="form-check-input" type="radio" name="CheckRadio" id="Tarde" value="Tarde" />
-                  <label class="form-check-label" for="Tarde">
+                  <input class="form-check-input" type="radio" name="CheckRadio" id="afternoonPeriod" value="Tarde" />
+                  <label class="form-check-label" for="afternoonPeriod">
                     Tarde
                   </label>
                 </div>
                 <!-- Noite -->
                 <div class="form-check mb-1">
-                  <input class="form-check-input" type="radio" name="CheckRadio" id="Noite" value="Noite" />
-                  <label class="form-check-label" for="Noite">
+                  <input class="form-check-input" type="radio" name="CheckRadio" id="eveningPeriod" value="Noite" />
+                  <label class="form-check-label" for="eveningPeriod">
                     Noite
                   </label>
                 </div>
@@ -109,7 +104,7 @@
     <section>
       <div class="fs-2">Alunos Cadastrados</div>
       <!-- Tabela -->
-      <table class="my-lg-1 text-center table" id="AlunosTable">
+      <table class="my-lg-1 text-center table" id="StudentsTable">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -133,9 +128,9 @@
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
     crossorigin="anonymous"></script>
   <!-- JavaScript -->
-  <script src="js/jquery-3.6.0.min.js"></script>
-  <script src="js/jquery.mask.min.js"></script>
-  <script src="js/script.js"></script>
+  <script src="src/js/jquery-3.6.0.min.js"></script>
+  <script src="src/js/jquery.mask.min.js"></script>
+  <script src="src/js/script.js"></script>
 </body>
 
 </html>
