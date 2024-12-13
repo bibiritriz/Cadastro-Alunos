@@ -6,19 +6,19 @@ public class Student {
   private String email;
   private String phone;
   private int idCourse;
-  private int period;
+  private int idPeriod;
 
   public Student() {
 
   }
 
-  public Student(int id, String name, String email, String phone, int idCourse, int period) {
+  public Student(int id, String name, String email, String phone, int idCourse, int idPeriod) {
     this.id = id;
     this.name = name;
     this.email = email;
     this.phone = phone;
     this.idCourse = idCourse;
-    this.period = period;
+    this.idPeriod = idPeriod;
   }
 
   public int getId() {
@@ -61,11 +61,11 @@ public class Student {
     this.idCourse = idCourse;
   }
 
-  public int getPeriod() {
-    return period;
+  public int getIdPeriod() {
+    return idPeriod;
   }
 
-  public void setPeriod(int period) {
-    this.period = period;
+  public void setIdPeriod(int idPeriod) {
+    this.idPeriod = idPeriod;
   }
 }

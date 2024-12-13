@@ -7,6 +7,24 @@ let students = [];
 //Array Courses
 let courses = [];
 
+//Array Courses
+let periods = [
+  {
+    id: 1,
+    name: "Manhã"
+  },
+  {
+    id: 2,
+    name: "Tarde"
+  },
+  {
+    id: 3,
+    name: "Noite"
+  }
+];
+
+loadPeriods();
+
 //Save
 function save() {
   let stud = {
@@ -15,7 +33,7 @@ function save() {
     email: document.getElementById("InputEmail").value,
     phone: document.getElementById("InputPhone").value,
     idCourse: document.getElementById("SelectCourses").value,
-    period: document.querySelector("input[name=CheckRadio]:checked").value
+    idPeriod: document.querySelector("input[name=CheckRadio]:checked").id
   };
 
   $.ajax({
@@ -23,7 +41,6 @@ function save() {
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify(stud),
-    async: false,
     success: (student) => {
       addNewRow(student);
       students.push(student);
@@ -49,6 +66,18 @@ function loadCourses() {
   });
 }
 
+function loadPeriods() {
+  for (let peri of periods) {
+    document.getElementById("CheckPeriod").innerHTML +=
+      `<div class="form-check mb-1">
+        <input class="form-check-input" type="radio" name="CheckRadio" id="${peri.id}" value="${peri.name}" ${peri.id === 1 ? 'checked' : ''} />
+        <label class="form-check-label" for="${peri.id}">
+          ${peri.name}
+        </label>
+      </div>`;
+  }
+}
+
 function loadStudents() {
   $.getJSON("http://localhost:8080/students", (response) => {
     students = response;
@@ -57,6 +86,7 @@ function loadStudents() {
     }
   });
 }
+
 
 function addNewRow(stud) {
   const table = document.getElementById("StudentsTable");
@@ -78,6 +108,6 @@ function addNewRow(stud) {
   const courseNode = document.createTextNode(courses[stud.idCourse - 1].name);
   newRow.insertCell().appendChild(courseNode);
 
-  const periodNode = document.createTextNode(stud.period);
-  newRow.insertCell().appendChild(periodNode);
+  const idPeriodNode = document.createTextNode(periods[stud.idPeriod - 1].name);
+  newRow.insertCell().appendChild(idPeriodNode);
 }

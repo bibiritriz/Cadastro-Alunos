@@ -23,8 +23,7 @@ public class StudentController {
   private List<Student> students = new ArrayList<>(Arrays.asList(
     new Student(1, "Beatriz Camargo", "BeatrizCamargo@gmail.com", "(11)99999-9999", 1, 1),
     new Student(2, "Kayky Costa", "KaykyCosta@gmail.com", "(11)98888-8888", 2, 2),
-    new Student(3, "Lucas Oliveira", "LucasOliveira@gmail.com", "(11)97777-7777", 3, 1),
-    new Student(4, "Ana Souza", "AnaSouza@gmail.com", "(11)96666-6666", 4, 3)));
+    new Student(3, "Ana Souza", "AnaSouza@gmail.com", "(11)96666-6666", 4, 3)));
 
   @GetMapping("students/{id}")
   public ResponseEntity<Student> getStudent(@PathVariable int id) {
